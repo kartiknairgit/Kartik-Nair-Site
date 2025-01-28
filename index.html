@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kartik Nair - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <nav class="topnav">
+        <div class="logo">
+            <h2>Kartik Nair</h2>
+        </div>
+        <ul class="navbar">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT ME</a></li>
+            <li><a href="#services">WHAT I DO</a></li>
+            <li><a href="#resume">RESUME</a></li>
+            <li><a href="#portfolio">RECOMMENDATIONS</a></li>
+            <li><a href="#blog">MISSION</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <div class="social-links">
+            <a href="#" onclick="copyEmail(event)"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/kartiknairgit" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linktr.ee/lazy_kartzie" target="_blank"><i class="fas fa-link"></i></a>
+            <a href="https://www.linkedin.com/in/kartik-nair-7a7197246/?originalSubdomain=au" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <div class="hero-content">
+                <h4>Welcome</h4>
+                    <h1>I'm <span class="input">Kartik Nair</span></h1>
+                    <h4>Based in Sydney, Australia.</h4>
+                    <div class="download-slider">
+                        <div class="slider-text">Slide to Download CV</div>
+                        <div class="slider-button">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="slider-bg"></div>
+                    </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+<section id="about" class="section">
+    <div class="section-content">
+        <h2 class="text">About Me</h2>
+        <div class="img">
+            <img src="images/profile.jpeg" alt="About Me">
+        </div>
+        
+        <div class="about-grid">
+            <!-- Left Column -->
+            <div class="left-column">
+                <div class="text-container text">
+                    <h3>Journey So Far</h3>
+                    <p>
+                        As a final-year Software Engineering student at USYD, my journey has been a mix of growth, learning and hands-on experience.
+                        I’ve also contributed as an executive at Sydney Computing Society and Engineers Australia, which has fuelled my development as a leader and collaborator. 
+                        Each step of my journey has been a testament of my commitment to improvement and adaptability.
+                    </p>
+                </div>
+
+                <div class="text-container text">
+                    <h3>Life & Background</h3>
+                    <p>
+                        I aspire to build a career that combines technology and leadership, starting as a business analyst or tech consultant. 
+                        My ultimate goal is to become a CEO, where I can drive innovation, create impactful solutions, and lead to benefit people and organizations alike. In the end, I aim to leave a positive legacy.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <div class="text-container text">
+                    <h3>Career Aspirations</h3>
+                    <p>
+                        Originally from Singapore, I’ve always been passionate about self-improvement. Books like Atomic Habits and Military Mindset have structured my philosophy on growth and discipline. 
+                        While software engineering was initially a challenge, these principles have allowed me to turn it into a passion, and I’ve come to enjoy the creativity and problem-solving involved.
+                    </p>
+                </div>
+
+                <div class="text-container text">
+                    <h3>Hobbies & Interests</h3>
+                    <p>
+                        Beyond academics and career goals, I stay active and engaged through diverse passions:
+                        <li style="color: white;">Sports: Division 1 Futsal at USYD, JSSL Singapore football, National-level Karate, and a Silver Medal in swimming</li>
+                        <li style="color: white;">Creative Pursuits: Exploring photography and capturing moments</li>
+                        <li style="color: white;">Investments: Building a stock trading portfolio with a 20% profit margin</li>
+                        <li style="color: white;">Reading: Exploring a variety of different topics</li>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="section-content">
+              <h2>Personal Projects</h2>
+              <div class="services-background"></div>
+              <div id="project-track" data-mouse-down-at="0" data-prev-percentage="0">
+                <div class="project-image-container">
+                  <img class="project-image" src="images/Project01.png" draggable="false" />
+                  <div class="project-image-title">Hands Free Music Control</div>
+                </div>
+                <div class="project-image-container">
+                  <img class="project-image" src="images/Project02.png" draggable="false" />
+                  <div class="project-image-title">BlackJack Probability Simulator</div>
+                </div>
+                <div class="project-image-container">
+                  <img class="project-image" src="images/Project03.png" draggable="false" />
+                  <div class="project-image-title">Intro to BST Algorithms</div>
+                </div>
+                <div class="project-image-container">
+                  <img class="project-image" src="images/Project04.png" draggable="false" />
+                  <div class="project-image-title">Budgeting System</div>
+                </div>
+                <div class="project-image-container">
+                  <img class="project-image" src="images/Project05.png" draggable="false" />
+                  <div class="project-image-title">AI Tiktaktoe</div>
+                </div>
+                <div class="project-image-container">
+                  <img class="project-image" src="images/Project06.png" draggable="false" />
+                  <div class="project-image-title">Hand Recognition</div>
+                </div>
+                <div class="project-image-container">
+                  <img class="project-image" src="images/Project07.png" draggable="false" />
+                  <div class="project-image-title">Passion Project</div>
+                </div>
+              </div>
+            </div>
+            <div class="drag-instruction">
+              <i class="fas fa-arrow-right"></i>
+              Hold and drag right to explore my personal projects
+            </div>
+          </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="section">
+            <div class="section-content">
+                <h2>Professional Journey</h2>
+                <div class="resume-timeline">
+                    <!-- June 2024 -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">June 2024</div>
+                        <div class="timeline-content">
+                            <h3>Consulting Engineer</h3>
+                            <span class="company">Ampol</span>
+                            <ul>
+                                <li>Developed a comprehensive Graphical User Interface (GUI) application using Python to conduct analysis and visualization</li>
+                                <li>Integrated ChatGPT API for machine learning based data synthesis in the backend servers</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- January 2024 -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">January 2024</div>
+                        <div class="timeline-content">
+                            <h3>Spatial AI Entrepreneur Intern</h3>
+                            <span class="company">EON Reality</span>
+                            <ul>
+                                <li>Analysed market trends and competitor data to develop competitive pricing strategies</li>
+                                <li>Proactively initiated cold calls to potential clients, employing persuasive communication techniques</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- October 2023 -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">October 2023</div>
+                        <div class="timeline-content">
+                            <h3>Software Engineer Intern</h3>
+                            <span class="company">AdGrowth Solutions</span>
+                            <ul>
+                                <li>Analysed and debugged existing code to identify and fix software issues</li>
+                                <li>Skilfully utilized Bubble.io and Python to develop front-end interfaces</li>
+                                <li>Managed project tasks efficiently using Gantt charts and Trello</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- September 2023 -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">September 2023</div>
+                        <div class="timeline-content">
+                            <h3>Core Executive Team Member</h3>
+                            <span class="company">Biotech Futures</span>
+                            <ul>
+                                <li>Actively contributed to strategic planning and decision-making processes</li>
+                                <li>Provided valuable insights to advance organization's mission and goals</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jun 2023</div>
+                        <div class="timeline-content">
+                          <h3>Sales Intern (Australia Internal Team)</h3>
+                          <span class="company">OESON</span>
+                          <ul>
+                            <li>Market Research and Analysis</li>
+                            <li>Sales Support</li>
+                            <li>Digital Marketing</li>
+                            <li>Data Analysis</li>
+                            <li>Team Collaboration</li>
+                            <li>Client outreach</li>
+                          </ul>
+                        </div>
+                      </div>
+                      
+                      <div class="timeline-item">
+                        <div class="timeline-date">Jun 2023</div>
+                        <div class="timeline-content">
+                          <h3>USYD STEM Project Intern</h3>
+                          <span class="company">Practera</span>
+                          <ul>
+                            <li>USYD STEM program intern</li>
+                            <li>Heavy use of agile development</li>
+                            <li>Market research and analysis</li>
+                            <li>Presentation making</li>
+                          </ul>
+                        </div>
+                      </div>
+                      
+                      <div class="timeline-item">
+                        <div class="timeline-date">Apr 2023</div>
+                        <div class="timeline-content">
+                          <h3>SAIEP Internship Team Lead</h3>
+                          <span class="company">Practera</span>
+                          <ul>
+                            <li>Team leader for SAIEP group</li>
+                            <li>Letter of recommendation for commendable work as team lead</li>
+                            <li>Head of business analytics and solution finding</li>
+                            <li>Skills: Team Leadership, Creative Problem Solving, Business Strategy, Decision-Making</li>
+                          </ul>
+                        </div>
+                      </div>
+                      
+                      <div class="timeline-item">
+                        <div class="timeline-date">Mar 2023</div>
+                        <div class="timeline-content">
+                          <h3>Business Analytics Intern</h3>
+                          <span class="company">Practera</span>
+                          <ul>
+                            <li>SAIEP internship on project and client management</li>
+                            <li>Business analyst for client</li>
+                            <li>Elaborative analysis for client companies identified problem</li>
+                          </ul>
+                        </div>
+                      </div>
+                      
+                      <div class="timeline-item">
+                        <div class="timeline-date">Aug 2020</div>
+                        <div class="timeline-content">
+                          <h3>Financial Analyst Internship</h3>
+                          <span class="company">Financial Transistor</span>
+                          <ul>
+                            <li>Investment analyst tasked with stock analysis for client company</li>
+                            <li>Visually appealing presentation of found data through data analysis</li>
+                            <li>In-depth analysis of stock market trends and trajectory</li>
+                            <li>Skills: Market Analysis, Data Analysis, Data Management, Microsoft Office Suite, Business Analytics</li>
+                          </ul>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section">
+            <div class="section-content">
+                <h2>Recommendations and Testimonials</h2>
+                <div class="testimonials-container">
+                    <div class="testimonial-box">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text"></p>
+                            <div class="testimonial-author">
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="testimonial-indicators"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog/Mission Section -->
+        <section id="blog" class="mission-section">
+            <h2 class="mission-title">Mission</h2>
+            <div class="mission-content">
+                <div class="quote-section">
+                    <div class="quote-mark">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="quote-text">"I just want to leave the world a better place than I found it"</p>
+                    <p class="quote-context">Through marathons and swimming fundraisers</p>
+                </div>
+        
+                <div class="fundraising-section">
+                    <h3 class="fundraising-goal">Fundraising Goal: $50,000</h3>
+                    <div class="charities-row">
+                        <div class="charity-card">
+                            <div class="charity-image">
+                                <img src="images/1.1.png" alt="RSPCA Australia" />
+                            </div>
+                            <h4 class="charity-name">RSPCA Australia</h4>
+                            <p class="charity-amount">$10,000</p>
+                            <p class="charity-description">Ranked first in YouGov's 2024 CharityIndex, supporting animal welfare</p>
+                        </div>
+                        <div class="charity-card">
+                            <div class="charity-image">
+                                <img src="images/2.2.png" alt="World Vision Australia" />
+                            </div>
+                            <h4 class="charity-name">World Vision Australia</h4>
+                            <p class="charity-amount">$10,000</p>
+                            <p class="charity-description">Working to end poverty for children around the world</p>
+                        </div>
+                        <div class="charity-card">
+                            <div class="charity-image">
+                                <img src="images/3.3.png" alt="Australian Red Cross" />
+                            </div>
+                            <h4 class="charity-name">Australian Red Cross</h4>
+                            <p class="charity-amount">$10,000</p>
+                            <p class="charity-description">Supporting communities in crisis</p>
+                        </div>
+                        <div class="charity-card">
+                            <div class="charity-image">
+                                <img src="images/4.4.png" alt="Starlight Children's Foundation" />
+                            </div>
+                            <h4 class="charity-name">Starlight Children's Foundation</h4>
+                            <p class="charity-amount">$10,000</p>
+                            <p class="charity-description">Brightening the lives of seriously ill children</p>
+                        </div>
+                        <div class="charity-card">
+                            <div class="charity-image">
+                                <img src="images/5.5.png" alt="National Seniors Australia" />
+                            </div>
+                            <h4 class="charity-name">National Seniors Australia</h4>
+                            <p class="charity-amount">$10,000</p>
+                            <p class="charity-description">Advocating for older Australians</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-content">
+                <h2>Contact</h2>
+                <div class="contact-container">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+                        <div class="contact-left-title">
+                            <h2>Get in touch</h2>
+                            <hr>
+                        </div>
+                        <input type="hidden" name="access_key" value="9368c91f-3ecb-4b32-99b6-cdc193ecae58">
+                        <input type="text" name="name" placeholder="Your Name" class="contact-inputs">
+                        <input type="email" name="email" placeholder="Your Email" class="contact-inputs">
+                        <textarea name="message" placeholder="Your Message" class="contact-left-textarea"></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                    <div class="contact-right">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script>
+        var typed = new Typed(".input", {
+            strings: ["Kartik Nair", "An Engineer", "A Web Developer", "A Content Creator"],
+            typeSpeed: 50,
+            backSpeed: 35,
+            loop: true,
+            backDelay: 1000,
+            // Add these properties
+            css: true,
+            style: 'color: goldenrod;', // Match your existing golden color
+            // Optionally add a class
+            className: 'typed-text'
+        });
+    </script>
+    <script src="script.js"></script>
+    <script src="projectTrack.js"></script>
+    <canvas id="confetti-canvas"></canvas>
+    <script>
+        // Call on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            handleResponsiveness();
+        });
+    
+        // Call on resize with debouncing for performance
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(handleResponsiveness, 250);
+        });
+    
+        // Call on orientation change for mobile devices
+        window.addEventListener('orientationchange', handleResponsiveness);
+    </script>
+</body>
+</html>
