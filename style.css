@@ -282,7 +282,7 @@ p {
 }
 
 #about .text-container p {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.8;
     color: #fff;
     text-align: left;
@@ -360,7 +360,7 @@ p {
 }
 
 .section-content h2 {
-    font-size: 40px;
+    font-size: 36px;
     margin-bottom: 40px;
     color: goldenrod;
 }
@@ -423,7 +423,7 @@ p {
     }
 
     #about .text-container h3 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     #about .text-container p {
