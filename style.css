@@ -526,22 +526,14 @@ p {
 
 /* Project Track Styles */
 #project-track {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(0%, -50%);
     display: flex;
     gap: 4vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(0%, -50%);
     user-select: none;
     -webkit-user-select: none;
-    cursor: grab;
-    overflow: hidden;
-    transform-origin: center;
-}
-
-
-#project-track.active {
-    cursor: grabbing;
 }
 
 .project-image-container {
@@ -550,8 +542,8 @@ p {
     object-fit: cover;
     object-position: 100% center;
     pointer-events: none;
-    transition: object-position 0.3s ease-out;
 }
+
 
 /* Adjust services section */
 #services {

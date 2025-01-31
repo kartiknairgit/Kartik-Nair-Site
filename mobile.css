@@ -324,26 +324,14 @@
     }
     
     .project-image-container {
-        width: 50vmin;
-        height: 70vmin;
+        width: 40vmin;
+        height: 56vmin;
     }
 }
 
 @media (max-width: 480px) {
     #project-track {
         gap: 1.5vmin;
-    }
-    
-    .project-image-container {
-        width: 40vmin;
-        height: 56vmin;
-    }
-}
-
-/* Extra small devices */
-@media (max-width: 360px) {
-    #project-track {
-        gap: 1vmin;
     }
     
     .project-image-container {
