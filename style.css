@@ -526,33 +526,31 @@ p {
 
 /* Project Track Styles */
 #project-track {
-    display: flex;
-    gap: 0;
-    position: absolute;
-    left: 0;
+    position: relative;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(0%, -50%);
+    display: flex;
+    gap: 4vmin;
     user-select: none;
-    padding-left: 4vmin;
+    -webkit-user-select: none;
     cursor: grab;
+    overflow: hidden;
+    transform-origin: center;
 }
 
-#project-track:active {
+
+#project-track.active {
     cursor: grabbing;
 }
 
-#project-track {
-    display: flex;
-    gap: 0;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    user-select: none;
-    padding-left: 4vmin;
-    cursor: grab;
-    overflow-x: visible; /* Added to ensure horizontal scrolling works */
-    width: max-content; /* Added to ensure track expands to fit content */
+.project-image-container {
+    width: 40vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: 100% center;
+    pointer-events: none;
+    transition: object-position 0.3s ease-out;
 }
 
 /* Adjust services section */
@@ -1289,14 +1287,3 @@ p {
     cursor: grabbing;
 }
 
-#project-track.active {
-    cursor: grabbing;
-    cursor: -webkit-grabbing;
-    transform: scale(1.002);
-}
-
-#project-track {
-    cursor: grab;
-    cursor: -webkit-grab;
-    transition: all 0.1s ease-out;
-}

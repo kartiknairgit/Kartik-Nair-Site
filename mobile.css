@@ -318,21 +318,36 @@
 }
 
 /* Even smaller screens */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    #project-track {
+        gap: 2vmin;
+    }
+    
     .project-image-container {
-        width: 40vmin;  /* Even smaller for very small screens */
+        width: 50vmin;
+        height: 70vmin;
+    }
+}
+
+@media (max-width: 480px) {
+    #project-track {
+        gap: 1.5vmin;
+    }
+    
+    .project-image-container {
+        width: 40vmin;
         height: 56vmin;
     }
+}
 
-    .drag-instructions {
-        font-size: 0.8rem;  /* Further reduced font size */
-        padding: 6px 10px;  /* Smaller padding */
+/* Extra small devices */
+@media (max-width: 360px) {
+    #project-track {
+        gap: 1vmin;
+    }
+    
+    .project-image-container {
+        width: 35vmin;
+        height: 49vmin;
     }
 }
-
-/* Ensure smooth scrolling behavior */
-#project-track {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
-}
-  

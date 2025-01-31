@@ -177,78 +177,99 @@ function startConfetti() {
 // Form submission handling
 document.addEventListener('DOMContentLoaded', function() {
     const track = document.querySelector('#project-track');
+    const images = track.getElementsByClassName('project-image-container');
+    let isDown = false;
     let startX;
     let scrollLeft;
-    let isMouseDown = false;
+
+    // Convert HTMLCollection to Array for easier manipulation
+    const imageArray = Array.from(images);
     
-    // Mouse event handlers
+    // Initialize starting positions
+    let prevPercentage = 0;
+    let percentage = 0;
+
+    // Mouse Down Event
     track.addEventListener('mousedown', (e) => {
-        isMouseDown = true;
+        isDown = true;
         track.classList.add('active');
         startX = e.pageX - track.offsetLeft;
         scrollLeft = track.scrollLeft;
+        
+        // Stop any ongoing animation
+        cancelAnimationFrame(track.animation);
     });
 
+    // Mouse Leave & Mouse Up Events
+    track.addEventListener('mouseleave', stopDragging);
+    track.addEventListener('mouseup', stopDragging);
+
+    function stopDragging() {
+        isDown = false;
+        track.classList.remove('active');
+    }
+
+    // Mouse Move Event
     track.addEventListener('mousemove', (e) => {
-        if (!isMouseDown) return;
+        if (!isDown) return;
         e.preventDefault();
+        
         const x = e.pageX - track.offsetLeft;
-        const walk = (x - startX) * 2; // Multiply by 2 for faster scrolling
-        track.scrollLeft = scrollLeft - walk;
+        const walk = (x - startX) * 2; // Adjust multiplier for speed
+        
+        // Calculate the percentage moved
+        percentage = (walk / track.offsetWidth) * -100;
+        nextPercentage = Math.max(Math.min(prevPercentage + percentage, 0), -100);
+        
+        // Apply transforms to track
+        track.style.transform = `translate(${nextPercentage}%, -50%)`;
+        
+        // Move images in parallel
+        imageArray.forEach(image => {
+            image.style.objectPosition = `${100 + nextPercentage}% center`;
+        });
     });
 
-    track.addEventListener('mouseup', () => {
-        isMouseDown = false;
-        track.classList.remove('active');
-    });
-
-    track.addEventListener('mouseleave', () => {
-        isMouseDown = false;
-        track.classList.remove('active');
-    });
-
-    // Touch event handlers for mobile
+    // Handle touch events
     track.addEventListener('touchstart', (e) => {
-        isMouseDown = true;
+        isDown = true;
         track.classList.add('active');
         startX = e.touches[0].pageX - track.offsetLeft;
         scrollLeft = track.scrollLeft;
+        
+        cancelAnimationFrame(track.animation);
     });
 
     track.addEventListener('touchmove', (e) => {
-        if (!isMouseDown) return;
+        if (!isDown) return;
         e.preventDefault();
+        
         const x = e.touches[0].pageX - track.offsetLeft;
         const walk = (x - startX) * 2;
-        track.scrollLeft = scrollLeft - walk;
+        
+        percentage = (walk / track.offsetWidth) * -100;
+        nextPercentage = Math.max(Math.min(prevPercentage + percentage, 0), -100);
+        
+        track.style.transform = `translate(${nextPercentage}%, -50%)`;
+        
+        imageArray.forEach(image => {
+            image.style.objectPosition = `${100 + nextPercentage}% center`;
+        });
     });
 
     track.addEventListener('touchend', () => {
-        isMouseDown = false;
+        isDown = false;
         track.classList.remove('active');
+        prevPercentage = nextPercentage;
     });
 
-    // Project click handling
-    const projectImages = document.querySelectorAll('.project-image');
-    const projectUrls = [
-        'https://github.com/kartiknairgit/Hand_tracker01/blob/main/image_processor.py', 
-        'https://github.com/kartiknairgit/blackjack',
-        'https://github.com/kartiknairgit/Graph-Traversal-VA-',
-        'https://github.com/kartiknairgit/expense_tracker',
-        'https://github.com/kartiknairgit/Unbeatable_TIKTAKTOE',
-        'https://github.com/kartiknairgit/Hand_tracker01',
-        'https://github.com/kartiknairgit/Lazy_Kartzie'
-    ];
-
-    projectImages.forEach((image, index) => {
-        image.addEventListener('click', (e) => {
-            // Only open URL if we haven't been dragging
-            if (!isMouseDown && projectUrls[index]) {
-                window.open(projectUrls[index], '_blank');
-            }
-        });
-        
-        image.style.cursor = 'pointer';
+    // Necessary CSS styles
+    track.style.transform = 'translate(0%, -50%)';
+    track.style.transition = 'transform 0.3s ease-out';
+    
+    imageArray.forEach(image => {
+        image.style.objectPosition = '100% center';
+        image.style.transition = 'object-position 0.3s ease-out';
     });
 });
 
