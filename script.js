@@ -285,7 +285,7 @@ function setupTestimonials() {
             role: "Founder & CEO"
         },
         {
-            text: "TThank you Kartik for your excellent calibre of work for my Practera Stem project. You and the team put in excellent effort and presented some thorough research and recommendations for my business goals. I am very thankful for your work and I hope you enjoyed the experience.",
+            text: "Thank you Kartik for your excellent calibre of work for my Practera Stem project. You and the team put in excellent effort and presented some thorough research and recommendations for my business goals. I am very thankful for your work and I hope you enjoyed the experience.",
             author: "Teresa Mcluckie",
             role: "Founder and Director at Trace Foodsteps"
         }
