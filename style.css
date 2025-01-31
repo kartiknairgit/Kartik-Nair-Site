@@ -1289,3 +1289,14 @@ p {
     cursor: grabbing;
 }
 
+#project-track.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    transform: scale(1.002);
+}
+
+#project-track {
+    cursor: grab;
+    cursor: -webkit-grab;
+    transition: all 0.1s ease-out;
+}

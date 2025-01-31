@@ -176,54 +176,80 @@ function startConfetti() {
 
 // Form submission handling
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('.contact-left');
+    const track = document.querySelector('#project-track');
+    let startX;
+    let scrollLeft;
+    let isMouseDown = false;
     
-    form.addEventListener('submit', async function(e) {
+    // Mouse event handlers
+    track.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        track.classList.add('active');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+    });
+
+    track.addEventListener('mousemove', (e) => {
+        if (!isMouseDown) return;
         e.preventDefault();
-        
-        // Start confetti animation
-        startConfetti();
-        
-        try {
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData
-            });
-            
-            if (response.ok) {
-                // Clear all input fields
-                form.reset();
-                
-                // Redirect to web3forms success page
-                window.location.href = 'https://web3forms.com/success';
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 2; // Multiply by 2 for faster scrolling
+        track.scrollLeft = scrollLeft - walk;
+    });
+
+    track.addEventListener('mouseup', () => {
+        isMouseDown = false;
+        track.classList.remove('active');
+    });
+
+    track.addEventListener('mouseleave', () => {
+        isMouseDown = false;
+        track.classList.remove('active');
+    });
+
+    // Touch event handlers for mobile
+    track.addEventListener('touchstart', (e) => {
+        isMouseDown = true;
+        track.classList.add('active');
+        startX = e.touches[0].pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+    });
+
+    track.addEventListener('touchmove', (e) => {
+        if (!isMouseDown) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX - track.offsetLeft;
+        const walk = (x - startX) * 2;
+        track.scrollLeft = scrollLeft - walk;
+    });
+
+    track.addEventListener('touchend', () => {
+        isMouseDown = false;
+        track.classList.remove('active');
+    });
+
+    // Project click handling
+    const projectImages = document.querySelectorAll('.project-image');
+    const projectUrls = [
+        'https://github.com/kartiknairgit/Hand_tracker01/blob/main/image_processor.py', 
+        'https://github.com/kartiknairgit/blackjack',
+        'https://github.com/kartiknairgit/Graph-Traversal-VA-',
+        'https://github.com/kartiknairgit/expense_tracker',
+        'https://github.com/kartiknairgit/Unbeatable_TIKTAKTOE',
+        'https://github.com/kartiknairgit/Hand_tracker01',
+        'https://github.com/kartiknairgit/Lazy_Kartzie'
+    ];
+
+    projectImages.forEach((image, index) => {
+        image.addEventListener('click', (e) => {
+            // Only open URL if we haven't been dragging
+            if (!isMouseDown && projectUrls[index]) {
+                window.open(projectUrls[index], '_blank');
             }
-        } catch (error) {
-            console.error('Error:', error);
-        }
+        });
+        
+        image.style.cursor = 'pointer';
     });
-});
-
-const projectImages = document.querySelectorAll('.project-image');
-const projectUrls = [
-    'https://github.com/kartiknairgit/Hand_tracker01/blob/main/image_processor.py', 
-    'https://github.com/kartiknairgit/blackjack',
-    'https://github.com/kartiknairgit/Graph-Traversal-VA-',
-    'https://github.com/kartiknairgit/expense_tracker',
-    'https://github.com/kartiknairgit/Unbeatable_TIKTAKTOE',
-    'https://github.com/kartiknairgit/Hand_tracker01',
-    'https://github.com/kartiknairgit/Lazy_Kartzie'
-];
-
-projectImages.forEach((image, index) => {
-    image.addEventListener('click', () => {
-        if (projectUrls[index]) {
-            window.open(projectUrls[index], '_blank');
-        }
-    });
-    
-    // Add cursor pointer to show it's clickable
-    image.style.cursor = 'pointer';
 });
 
 // Function to handle intersection observer
