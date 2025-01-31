@@ -201,16 +201,7 @@
     }
 }
 
-@media (max-width: 768px) {
-    #project-track {
-        gap: 2vmin;
-    }
 
-    .project-image-container {
-        width: 80vmin;
-        height: 112vmin;
-    }
-}
 
 /* Adjust charity cards for smaller screens */
 @media (max-width: 768px) {
@@ -284,16 +275,64 @@
   }
 
   @media (max-width: 768px) {
-    #services {
-        padding-top: 50px; /* Slightly reduced for mobile */
-    }
-
-    #services .section-content {
-        height: calc(100% - 50px);
+    #project-track {
+        gap: 1.5vmin;  /* Reduced gap between projects */
+        padding: 0 10px;  /* Smaller padding on sides */
     }
 
     .project-image-container {
-        width: 60vmin; /* Slightly smaller on mobile */
-        height: 84vmin;
+        width: 45vmin;  /* Significantly smaller width for mobile */
+        height: 63vmin;  /* Maintaining aspect ratio */
+        margin: 5px;  /* Reduced margins */
+    }
+
+    .project-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Instructions styling */
+    .drag-instructions {
+        font-size: 0.9rem;  /* Smaller font size */
+        padding: 8px 12px;  /* Reduced padding */
+        max-width: 80%;  /* Limit width on mobile */
+        margin: 10px auto;  /* Center and add some space */
+        background-color: rgba(0, 0, 0, 0.7);  /* Semi-transparent background */
+        border-radius: 8px;
+    }
+
+    .drag-instructions .arrow {
+        font-size: 0.8rem;  /* Smaller arrow size */
+    }
+
+    /* Adjust text size for project details */
+    .project-title {
+        font-size: 1rem;  /* Smaller title size */
+    }
+
+    .project-description {
+        font-size: 0.85rem;  /* Smaller description size */
+        line-height: 1.4;
     }
 }
+
+/* Even smaller screens */
+@media (max-width: 480px) {
+    .project-image-container {
+        width: 40vmin;  /* Even smaller for very small screens */
+        height: 56vmin;
+    }
+
+    .drag-instructions {
+        font-size: 0.8rem;  /* Further reduced font size */
+        padding: 6px 10px;  /* Smaller padding */
+    }
+}
+
+/* Ensure smooth scrolling behavior */
+#project-track {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
+}
+  
