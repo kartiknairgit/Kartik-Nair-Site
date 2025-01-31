@@ -174,11 +174,10 @@ function startConfetti() {
     animate();
 }
 
-// Form submission handling
 document.addEventListener('DOMContentLoaded', function() {
     const track = document.getElementById("project-track");
     
-    // Add dataset properties
+    // Initialize data attributes
     track.dataset.mouseDownAt = "0";
     track.dataset.prevPercentage = "0";
     track.dataset.percentage = "0";
@@ -196,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (track.dataset.mouseDownAt === "0") return;
 
         const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
-        const maxDelta = window.innerWidth / 2;
+        const maxDelta = window.innerWidth;  // Use full window width for more natural movement
 
         const percentage = (mouseDelta / maxDelta) * -100;
         const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
@@ -204,21 +203,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
         track.dataset.percentage = nextPercentage;
 
-        // Animate the track
+        // Animate the track with improved easing
         track.animate({
             transform: `translate(${nextPercentage}%, -50%)`
         }, { 
             duration: 1200, 
-            fill: "forwards" 
+            fill: "forwards",
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)"
         });
 
-        // Animate all project images
-        for (const image of track.getElementsByClassName("project-image-container")) {
+        // Animate each image with parallax effect
+        const images = track.getElementsByClassName("project-image-container");
+        for(let i = 0; i < images.length; i++) {
+            const image = images[i];
+            // Calculate individual image movement based on position
+            const imagePercentage = nextPercentage * (1 + (i * 0.1));
+            
             image.animate({
-                objectPosition: `${100 + nextPercentage}% center`
+                objectPosition: `${100 + imagePercentage}% center`
             }, { 
                 duration: 1200, 
-                fill: "forwards" 
+                fill: "forwards",
+                easing: "cubic-bezier(0.22, 1, 0.36, 1)"
             });
         }
     };
@@ -228,11 +234,47 @@ document.addEventListener('DOMContentLoaded', function() {
     window.onmouseup = e => handleOnUp();
     window.onmousemove = e => handleOnMove(e);
 
-    // Touch events
-    window.ontouchstart = e => handleOnDown(e.touches[0]);
-    window.ontouchend = e => handleOnUp();
-    window.ontouchmove = e => handleOnMove(e.touches[0]);
+    // Touch events with improved handling
+    window.ontouchstart = e => {
+        e.preventDefault();
+        handleOnDown(e.touches[0]);
+    };
+    window.ontouchend = e => {
+        e.preventDefault();
+        handleOnUp();
+    };
+    window.ontouchmove = e => {
+        e.preventDefault();
+        handleOnMove(e.touches[0]);
+    };
+
+    // Optional: Add momentum scrolling
+    let momentum = 0;
+    let animationFrame;
+
+    function applyMomentum() {
+        if (Math.abs(momentum) > 0.1) {
+            const currentPercentage = parseFloat(track.dataset.percentage);
+            const nextPercentage = currentPercentage + momentum;
+            
+            track.dataset.percentage = Math.max(Math.min(nextPercentage, 0), -100);
+            
+            momentum *= 0.95; // Decay factor
+            
+            track.style.transform = `translate(${track.dataset.percentage}%, -50%)`;
+            
+            animationFrame = requestAnimationFrame(applyMomentum);
+        }
+    }
+
+    window.onmouseup = e => {
+        handleOnUp();
+        cancelAnimationFrame(animationFrame);
+        momentum = 0;
+    };
 });
+
+
 // Function to handle intersection observer
 const observeTimeline = () => {
     const observer = new IntersectionObserver((entries) => {

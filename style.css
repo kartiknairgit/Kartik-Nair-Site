@@ -529,19 +529,23 @@ p {
     display: flex;
     gap: 4vmin;
     position: absolute;
-    left: 50%;
+    left: 0; /* Changed from 50% to 0 to start from left */
     top: 50%;
-    transform: translate(0%, -50%);
+    transform: translate(0%, -50%); /* Removed initial X translation */
     user-select: none;
     -webkit-user-select: none;
+    padding-left: 4vmin; /* Add some initial padding */
+    width: max-content; /* Ensure track takes full width of content */
 }
 
 .project-image-container {
     width: 40vmin;
     height: 56vmin;
     object-fit: cover;
-    object-position: 100% center;
+    object-position: 0% center; /* Start from left side */
     pointer-events: none;
+    will-change: transform; /* Optimize for animations */
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
