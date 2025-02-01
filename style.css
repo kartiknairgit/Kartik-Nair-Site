@@ -637,7 +637,7 @@ p {
     object-fit: cover;
     object-position: 100% center;
     border-radius: 10px;
-    pointer-events: none; /* Prevent image drag */
+    pointer-events: all; /* Prevent image drag */
     transition: transform 0.3s ease;
 }
 
@@ -1283,3 +1283,52 @@ p {
     cursor: grabbing;
 }
 
+
+.bottom-instructions, .slide-instructions {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-instructions {
+    bottom: 30px;
+    animation: fadeInOut 5s ease forwards;
+}
+
+.slide-instructions {
+    bottom: 90px;
+    animation: fadeInOut 5s ease forwards 0.5s;
+}
+
+.bottom-instructions span, .slide-instructions span {
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.bottom-instructions .arrow, .slide-instructions .arrow {
+    color: #FFD700;
+    font-size: 24px;
+    animation: slideArrow 1.5s infinite;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(20px); visibility: hidden; }
+}
+
+@keyframes slideArrow {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
