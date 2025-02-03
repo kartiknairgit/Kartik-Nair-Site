@@ -7,8 +7,10 @@ Welcome to my personal website! This site serves as a portfolio, blog, and showc
 
 ## 📌 Features
 - 🏠 **Home Page** – A brief introduction about me  
+- 🧑 **About me** – A personal connection with me and my past
 - 💼 **Projects** – Showcasing my work and contributions  
 - ✍ **Blog** – Writing about technology, software engineering, and personal insights  
+- 🌱  **Mission** – Describes my goals in regards to giving back to the community 
 - 📩 **Contact** – Reach out to me via email or social media  
 
 ## 🛠️ Tech Stack
@@ -28,6 +30,12 @@ Ensure you have the following installed:
 ### Installation  
 Clone the repository:  
 ```bash
-git clone https://github.com/yourusername/yourwebsite.git
-cd yourwebsite
+git clone https://github.com/kartiknairgit/Kartik-Nair-Site.git
+cd Kartik-Nair-Site
 ```
+
+## 📬 Contact  
+Feel free to connect:  
+
+- 📧 **Email:** [EMAIL](mailto:kartik.n.1101@gmail.com)  
+- 💼 **LinkedIn:** [LINKEDIN profile](https://www.linkedin.com/in/kartik-nair-7a7197246/)  
