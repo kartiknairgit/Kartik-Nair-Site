@@ -266,6 +266,7 @@ p {
     opacity: 0;
     transition: all 0.5s ease;
     height: 100%;
+    
 }
 
 #about .text-container.reveal {
@@ -282,7 +283,7 @@ p {
 }
 
 #about .text-container p {
-    font-size: 15px;
+    font-size: clamp(1rem, 2vw, 1.063rem);
     line-height: 1.8;
     color: #fff;
     text-align: left;
@@ -934,12 +935,13 @@ p {
 }
 
 #portfolio .section-content {
-    padding-top: 100px;
+    /* Increase padding-top to move content lower */
+    padding-top: clamp(4rem, 8vh, 6rem);
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
-}
+  }
 
 #portfolio h2 {
     color: goldenrod;
@@ -950,24 +952,24 @@ p {
 }
 
 .testimonials-container {
+    /* Remove negative margin-top */
+    margin-top: clamp(6rem, 20vh, 10rem);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 20px;
-    margin: auto;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
     width: 100%;
-}
+  }
 
-.testimonial-box {
+  .testimonial-box {
+    margin: clamp(1.5rem, 3vh, 2.5rem) auto;
     background: #fff;
     border-radius: 20px;
-    padding: 60px 80px;
+    padding: clamp(2rem, 5vw, 4rem);
+    width: min(90%, 1000px);
     position: relative;
-    width: 90%;
-    max-width: 1000px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    margin: 40px auto;
-}
+  }
 
 .quote-icon {
     position: absolute;
