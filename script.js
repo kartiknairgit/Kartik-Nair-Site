@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Animate each image
         const images = track.getElementsByClassName("project-image");
         for(const image of images) {
-            const imageMovement = nextPercentage * 2.5;
+            const imageMovement = nextPercentage * 1.1;
             image.animate({
                 objectPosition: `${100 + imageMovement}% center`
             }, { 
